@@ -34,3 +34,10 @@ CAL_LID_L3_APro_AllSky-Standard-V3-00.2013-11D.h5
 CAL_LID_L3_APro_AllSky-Standard-V3-00.2013-11N.h5
 CAL_LID_L3_APro_AllSky-Standard-V3-00.2013-12D.h5
 CAL_LID_L3_APro_AllSky-Standard-V3-00.2013-12N.h5
+
+
+To make a push do:
+
+> git remote set-url origin git@github.com:sylvielsstfr/caliopL3Ana.git
+> git push origin master
+
