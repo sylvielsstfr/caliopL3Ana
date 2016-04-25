@@ -37,6 +37,9 @@ Aerosols at LSST site longtitude-latitude bin.
 
 - ScanAerosolsOneYear.ipynb
 
+- AerosolsOneYear_v1.ipynb show a nicer plot 
+
+
 It shows the rise of aerosols when the construction has started.
 
 
@@ -49,6 +52,9 @@ It shows the rise of aerosols when the construction has started.
 
 Just detect by eyes where are the anomalies in the world.
 Look carefull at Brazil.
+
+
+
 
 
 
