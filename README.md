@@ -2,7 +2,7 @@
 ===============
 
 Creation Thu 21 April 2016
-Update 22 April 2016
+Update 25 April 2016
 
 
 This is my first work on CALIOP (Callipso) data.
@@ -15,16 +15,45 @@ These data are summary 2 x 12 files, of L3 level converted from hdf to h5.
 
 
 ## The analysis is availble in the following ipython notebook:
+==============================================================
 
-### Example to explore data
+
+### Example to explore data (21 April 2016)
+=========================================
 - ExploreL3Data-Copy1.ipynb
 - ExploreL3Datav0.ipynb
 - ExploreL3Datav1.ipynb
 
-### Go further with the aerosols
+### Go further with the aerosols, especially looking at different types of aerosols (22 April 2016):
+=====================================================================================================
+
 - ExploreL3Aerosolsv0.ipynb
 
+
+### Scan One year of aerosols and plot AOD vs month (22 April 2016)
+===================================================================
+
+Aerosols at LSST site longtitude-latitude bin.
+
+- ScanAerosolsOneYear.ipynb
+
+It shows the rise of aerosols when the construction has started.
+
+
+### For each year, produce a pdf file for the monthly averaged maps of all aerosols day time and night time
+==========================================================================================================
+
+- Monday 25th 2016 
+
+- ScanAerosolMapsOneYear.ipynb
+
+Just detect by eyes where are the anomalies in the world.
+Look carefull at Brazil.
+
+
+
 ## Some plots have been saved in /plot directory
+================================================
 
 
 ## The list of inut files:
