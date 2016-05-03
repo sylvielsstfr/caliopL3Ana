@@ -22,7 +22,30 @@ Longitude_lsst = -70.7366833333333 # deg
 Latitude_lsst = -30.240741666666672 #deg
 Altitude_lsst = 2749.999999999238 #m
 
-def GetValue(filename,keyname,lat=Latitude_lsst,long=Longitude_lsst):
+
+
+    
+#--------------------------------------------------------------------------------
+def GetL3FilenameDay(path,base,year,month):
+    month_str='%02d' % (month+1)
+    fullpath_root=os.path.join(os.path.join(path,str(year)),'hdf5')
+    dayfile_extension= str(year)+'-'+month_str+'D.h5'  
+    dayfile_fullname=os.path.join(fullpath_root,base+'.'+dayfile_extension)
+    return dayfile_fullname
+#---------------------------------------------------------------------------------    
+    
+#--------------------------------------------------------------------------------    
+def GetL3FilenameNight(path,base,year,month):
+    month_str=str('%02d' % (month+1))
+    fullpath_root=os.path.join(os.path.join(path,str(year)),'hdf5')
+    nightfile_extension= str(year)+'-'+month_str+'N.h5'  
+    nightfile_fullname=os.path.join(fullpath_root,base+'.'+nightfile_extension)
+    return nightfile_fullname
+#-------------------------------------------------------------------------------    
+
+
+#-------------------------------------------------------------------------------
+def GetL3Value(filename,keyname,lat=Latitude_lsst,long=Longitude_lsst):
     h5f = h5py.File(filename, "r")  # file on which one works
     # table of longitudes
     longitude=h5f['Longitude_Midpoint']   # shape =(1,72)
@@ -38,9 +61,56 @@ def GetValue(filename,keyname,lat=Latitude_lsst,long=Longitude_lsst):
     data_array=h5f[keyname]
     #h5f.close()
     return data_array[lat_index,long_index] 
+#-------------------------------------------------------------------------------    
+
+#--------------------------------------------------------------------------------
+def GetL2APAltitudes():
+    # Generate altitude data according to file specification [1].
+
+    bin_layer1=290
+    bin_layer2=200
+    bin_layer3=55
     
 
+    #alt = np.zeros(290)
+    alt = np.zeros(bin_layer1+bin_layer2+bin_layer3)
 
+    # You can visualize other blocks by changing subset parameters.
+    #  20.2km to 30.1km
+    # for i in range (0, 54):
+    #       alt[i] = 20.2 + i*0.18;
+    for i in range(0,bin_layer3):
+       alt[i+bin_layer1+bin_layer2-1] = 20.2 + i*0.18;
+
+    #  8.2km to 20.2km
+    # for i in range (0, 199):
+    #       alt[i] = 8.2 + i*0.06;
+    for i in range(0,bin_layer2-1):
+        alt[i+bin_layer1] = 8.2 + i*0.06;
+
+    # -0.5km to 8.2km
+    #for i in range (0, 289):
+    for i in range (0, bin_layer1):
+          alt[i] = -0.5 + i*0.03
+                           
+    return alt
+#---------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+def GetL3APAltitudes():
+    # Generate altitude data according to file specification 
+    # CALIPSO Data management and Data product 
+
+    bin_layer=208
+    alt = np.zeros(bin_layer)
+    
+    # -0.4km to 12.1 km
+    #for i in range (0, 289):
+    for i in range (0, bin_layer):
+        alt[i] = -0.4 + i*0.06
+                           
+    return alt
+#--------------------------------------------------------------------------------    
 
 if __name__ == "__main__":
 
@@ -50,19 +120,19 @@ if __name__ == "__main__":
     # defines a few constants
     year=2015
     month=0
-    
-    month_stringnumber=['01','02','03','04','05','06','07','08','09','10','11','12']
     path_root='/Users/dagoret-campagnesylvie/MacOsX/LSST/MyWork/CALIPSO/DATA/ICARE/CALIOP/L3/CAL_LID_L3_APro_AllSky.v3.00/CAL_LID_L3_APro_AllSky.v3.00'
-    fullpath_root=os.path.join(os.path.join(path_root,str(year)),'hdf5')
     filename_base='CAL_LID_L3_APro_AllSky-Standard-V3-00'
+  
+    dayfile_fullname=GetL3FilenameDay(path_root,filename_base,year,month)
+    nightfile_fullname=GetL3FilenameNight(path_root,filename_base,year,month)
     
-    dayfile_extension= str(year)+'-'+month_stringnumber[month]+'D'+'.h5'
-    nightfile_extension=str(year)+'-'+month_stringnumber[month]+'N'+'.h5'
-    dayfile_fullname=os.path.join(fullpath_root,filename_base+'.'+dayfile_extension)
-    nightfile_fullname=os.path.join(fullpath_root,filename_base+'.'+nightfile_extension)
+    print "FILE = ",dayfile_fullname
     
-    print GetValue(dayfile_fullname,'AOD_Mean')
-    print GetValue(dayfile_fullname,'Relative_Humidity_Mean')
-    print GetValue(dayfile_fullname,'Temperature_Mean')
-    print GetValue(dayfile_fullname,'Pressure_Mean')
+    print GetL3Value(dayfile_fullname,'AOD_Mean')
+    print GetL3Value(nightfile_fullname,'Relative_Humidity_Mean')
+    print GetL3Value(dayfile_fullname,'Temperature_Mean')
+    print GetL3Value(dayfile_fullname,'Pressure_Mean')
+    print GetL3APAltitudes() 
+    
+    plt.plot(GetL3APAltitudes())
     
