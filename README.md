@@ -67,7 +67,15 @@ Aerosols at LSST site longtitude-latitude bin.
 under devoloppement for 10 years
 - ScanAerosolsTenYears.ipynb
 
+
+#### show nice plots over 10 years. Define pandas 
+
+- ScanAerosolsTenYears_v1.ipynb
+
+
+
 ### Show maps of AOD
+===========================
 
 - AOD world map for one year		
 - ScanManyAerosolMapsOneYear.ipynb
