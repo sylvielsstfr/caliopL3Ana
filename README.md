@@ -2,7 +2,7 @@
 ===============
 
 Creation Thu 21 April 2016
-Update 25 April 2016
+Update 9 May 2016
 
 
 This is my first work on CALIOP (Callipso) data.
@@ -14,8 +14,26 @@ These data are summary 2 x 12 files, of L3 level converted from hdf to h5.
 - one file for days, one file for nights
 
 
-## The analysis is availble in the following ipython notebook:
+## The analysis is avaialble in the following ipython notebook:
 ==============================================================
+
+
+### all ipython notebook
+AstroObservLocation.ipynb		ScanAerosolsOneYear_v1.ipynb
+AtmProperties1Year.ipynb		ScanAerosolsOneYear_v2.ipynb
+ExploreL3Aerosolsv0.ipynb		ScanAerosolsTenYears.ipynb
+ExploreL3Data-Copy1.ipynb		ScanManyAerosolMapsOneYear.ipynb
+ExploreL3Datav0.ipynb			ScanManyAerosolMapsSAOneYear.ipynb
+ExploreL3Datav1.ipynb			ShowGranules.ipynb
+ScanAerosolMapsOneYear.ipynb		example_histowithdates.ipynb
+ScanAerosolsOneYear.ipynb
+
+
+### library
+
+libCaliopAOD.py
+
+
 
 
 ### Example to explore data (21 April 2016)
@@ -28,6 +46,13 @@ These data are summary 2 x 12 files, of L3 level converted from hdf to h5.
 =====================================================================================================
 
 - ExploreL3Aerosolsv0.ipynb
+- ExploreL3Datav1.ipynb		
+
+It shows the rise of aerosols when the construction has started.
+
+
+### shows otherthan AOD quantities above LSST site 
+
 
 
 ### Scan One year of aerosols and plot AOD vs month (22 April 2016)
@@ -36,22 +61,23 @@ These data are summary 2 x 12 files, of L3 level converted from hdf to h5.
 Aerosols at LSST site longtitude-latitude bin.
 
 - ScanAerosolsOneYear.ipynb
-
 - AerosolsOneYear_v1.ipynb show a nicer plot 
+- ScanAerosolsOneYear_v2.ipynb
+
+under devoloppement for 10 years
+- ScanAerosolsTenYears.ipynb
+
+### Show maps of AOD
+
+- AOD world map for one year		
+- ScanManyAerosolMapsOneYear.ipynb
+- AOD map above South America
+- ScanManyAerosolMapsSAOneYear.ipynb
 
 
-It shows the rise of aerosols when the construction has started.
+### other quantities than AOD
+- AtmProperties1Year.ipynb
 
-
-### For each year, produce a pdf file for the monthly averaged maps of all aerosols day time and night time
-==========================================================================================================
-
-- Monday 25th 2016 
-
-- ScanAerosolMapsOneYear.ipynb
-
-Just detect by eyes where are the anomalies in the world.
-Look carefull at Brazil.
 
 
 
