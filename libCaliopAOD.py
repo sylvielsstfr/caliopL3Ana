@@ -100,6 +100,7 @@ def GetL2APAltitudes():
 def GetL3APAltitudes():
     # Generate altitude data according to file specification 
     # CALIPSO Data management and Data product 
+    # In Km
 
     bin_layer=208
     alt = np.zeros(bin_layer)
@@ -111,6 +112,23 @@ def GetL3APAltitudes():
                            
     return alt
 #--------------------------------------------------------------------------------    
+
+#-------------------------------------------------------------------------------
+def GetL3APAltitudesDepth():
+    # Generate altitude data according to file specification 
+    # CALIPSO Data management and Data product 
+    # In km
+    bin_layer=208
+    dalt = np.zeros(bin_layer)
+    
+    # -0.4km to 12.1 km
+    #for i in range (0, 289):
+    for i in range (0, bin_layer):
+        dalt[i] = 0.06
+                            
+    return dalt
+#--------------------------------------------------------------------------------  
+
 
 if __name__ == "__main__":
 
@@ -134,5 +152,8 @@ if __name__ == "__main__":
     print GetL3Value(dayfile_fullname,'Pressure_Mean')
     print GetL3APAltitudes() 
     
-    plt.plot(GetL3APAltitudes())
     
+    plt.plot(GetL3APAltitudes())
+    plt.xlabel('layer number')
+    plt.ylabel('altitude in km')
+    plt.title('layer number to altitude coded in L3 Calipso data')
