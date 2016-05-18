@@ -68,9 +68,15 @@ under devoloppement for 10 years
 - ScanAerosolsTenYears.ipynb
 
 
-#### show nice plots over 10 years. Define pandas 
+### show nice plots over 10 years. Define pandas 
 
 - ScanAerosolsTenYears_v1.ipynb
+
+Really 10 years with histograms for AOD and PWV
+- ScanAerosolsTenYears_v2.ipynb
+
+Really 10 years with histogram with their functions fits for AOD and PWV
+- ScanAerosolsTenYears_v3.ipynb
 
 
 
