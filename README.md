@@ -79,6 +79,11 @@ Really 10 years with histogram with their functions fits for AOD and PWV
 - ScanAerosolsTenYears_v3.ipynb
 
 
+Really 10 years with histogram with their functions fits for AOD and PWV
+Data on external disk
+- ScanAerosolsTenYears_v4.ipynb
+
+
 
 ### Show maps of AOD
 ===========================
